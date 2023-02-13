@@ -1,55 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Button, Dialog, DialogContent, Grid, Typography } from '@material-ui/core';
 
 import useStyles from './styles'
 
-const DialogDetails = () => {
+const DialogDetails = ({ children, image, alt, author, createdAt, scale, description, url }) => {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false)
+
+
   return (
     <>
-      <Dialog fullWidth maxWidth='md' open={true} className={classes.dialogContainer} scroll='body'>
+      {children({ handleOpen })}
+      <Dialog fullWidth maxWidth='md' open={open} className={classes.dialogContainer} scroll='body' onClose={handleClose}>
         <DialogContent className={classes.dialogContent}>
           <Grid container>
-            <Grid item md={12}>
-              <img width='100%' alt='imagetest' src="https://files.lafm.com.co/assets/public/styles/i_a_750x375/public/2023-02/dino_0.jpg.webp?H1c3bS5ZRQ1okhFRcS.2ZdrKRD8wyL3b&itok=BCuNlxWJ" />
+            <Grid item md={12} >
+              <img width='100%' alt={alt} src={image} />
             </Grid>
             <Grid item md={12}>
               <div className={classes.infoContainer}>
                 <Grid container spacing={1}>
                   <Grid item md={4}>
                     <Typography varaint='subtitle2' className={classes.info}>
-                      Fotógrafo: <Typography variant='caption' className={classes.description}>
-                        Leidy Marcela Álvarez Mejía
+                      Creador: <Typography variant='caption' className={classes.description}>
+                        {author}
                       </Typography>
                     </Typography>
                   </Grid>
                   <Grid item md={4}>
                     <Typography varaint='subtitle2' className={classes.info}>
-                      Perfil del Fotógrafo: <Typography variant='caption' className={classes.description}>
-                        Leidy Marcela Álvarez Mejía
+                      Fecha de Creación: <Typography variant='caption' className={classes.description}>
+                        {createdAt}
+                      </Typography>
+                    </Typography>
+                  </Grid>
+                  <Grid item md={4}>
+                    <Typography varaint='subtitle2' className={classes.info}>
+                      Descripción: <Typography variant='caption' className={classes.description}>
+                        {description}
                       </Typography>
                     </Typography>
                   </Grid>
                   <Grid item md={4}>
                     <Typography varaint='subtitle2' className={classes.info}>
                       Dimensiones: <Typography variant='caption' className={classes.description}>
-                        20-04-2001
+                        {scale}
                       </Typography>
                     </Typography>
                   </Grid>
                   <Grid item md={4}>
                     <Typography varaint='subtitle2' className={classes.info}>
                       URL: <Typography variant='caption' className={classes.description}>
-                        Leidy Marcela Álvarez Mejía
+                        <a href={url} >
+                          Visitar URL
+                        </a>
                       </Typography>
                     </Typography>
                   </Grid>
                 </Grid>
               </div>
-
               <div className={classes.button} >
-                <Button variant='contained' color='primary'>Cerrar</Button>
+                <Button variant='contained' color='primary' onClick={handleClose}>Cerrar</Button>
               </div>
             </Grid>
           </Grid>

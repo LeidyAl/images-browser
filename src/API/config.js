@@ -1,3 +1,6 @@
 const config = {
-    API_KEY  : "DfY3LuHe8ply33zXH8K1Naj3La5ou4XB0OlzRllIws95XPkcjNSK3j43"
-}
+  API_KEY: 'GqzW09T-VMTgiDqpnCRij40XikAyh05XPwGko23X2ck',
+  API_URL: `https://api.unsplash.com`,
+};
+
+export default config;

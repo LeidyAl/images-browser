@@ -5,12 +5,6 @@ export default createTheme({
     primary: {
       main: '#119da4',
       contrastText: '#FFF',
-      100: '#FFC676',
-      200: '#F1AE6C',
-      300: '#E29662',
-      400: '#D47D57',
-      500: '#BE5948',
-      600: '#B0413E',
     },
     secondary: {
       main: '#264653',
@@ -19,6 +13,32 @@ export default createTheme({
   typography: {
     h6: {
       fontWeight: 600,
+    },
+  },
+  MuiOutlinedInput: {
+    marginDense: {
+      borderRadius: 50,
+      overflow: 'hidden',
+    },
+    root: {
+      '&  input[type=number]': {
+        '&::-webkit-inner-spin-button': {
+          display: 'none !important',
+        },
+      },
+    },
+  },
+  MuiInput: {
+    marginDense: {
+      borderRadius: 50,
+      overflow: 'hidden',
+    },
+    root: {
+      '&  input[type=number]': {
+        '&::-webkit-inner-spin-button': {
+          display: 'none !important',
+        },
+      },
     },
   },
 });

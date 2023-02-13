@@ -25,11 +25,15 @@ const useStyles = makeStyles((theme) => ({
   description: {
     color: '#ededed',
     fontSize: 12,
+    '& a': {
+      color: '#ededed',
+    },
   },
   button: {
     display: 'flex',
     justifyContent: 'flex-end',
-    margin: 8,
+    margin: 12,
+    marginTop: 0,
   },
 }));
 

@@ -9,6 +9,8 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
   },
   cardContent: {
+    minHeight: 100,
+    maxHeight: 100,
     display: 'flex',
     padding: 0,
     justifyContent: 'center',
@@ -16,14 +18,28 @@ const useStyles = makeStyles((theme) => ({
     '& img': {
       width: '100%',
     },
+    [theme.breakpoints.down('sm')]: {
+      minHeight: 200,
+      maxHeight: 200,
+    },
   },
   info: {
     width: '100%',
+    height: '100%',
     position: 'absolute',
     background: 'rgba(0,0,0,0.3)',
-    color: '#ffff',
-    padding: 8,
-    bottom: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    '& h6': {
+      display: 'none',
+    },
+    '&:hover': {
+      '& h6': {
+        display: 'block',
+      },
+      color: '#ffff',
+    },
   },
 }));
 
